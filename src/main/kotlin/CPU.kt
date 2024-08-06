@@ -9,4 +9,5 @@ class CPU {
     var timerRegister: UByte = 0u
     var addressRegister: BitSet = BitSet(16)
     var memoryRegister: BitSet = BitSet(1)
+
 }

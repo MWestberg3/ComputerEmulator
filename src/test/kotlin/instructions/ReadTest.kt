@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.Read
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class ReadTest {
-    val read = Read("3000")
+    val cpu = CPU()
+    val read = Read("3000", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0000", read.registerX)

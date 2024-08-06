@@ -1,12 +1,15 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.Store
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class StoreTest {
-    val store = Store("0048")
+    val cpu = CPU()
+    val store = Store("0048", cpu)
 
     @Test
     fun execute() {
@@ -36,8 +39,11 @@ class StoreTest {
     fun getAddress() {
         assertNull(store.address)
     }
+
     @Test
-    fun assignRegister() {
+    fun executeTest() {
+        store.execute()
+        assertEquals(72.toUByte(), store.cpu.generalRegisters[0])
     }
 
     @Test

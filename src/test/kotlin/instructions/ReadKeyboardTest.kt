@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.ReadKeyboard
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class ReadKeyboardTest {
-    val readKeyboard = ReadKeyboard("6000")
+    val cpu = CPU()
+    val readKeyboard = ReadKeyboard("6000", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0000", readKeyboard.registerX)

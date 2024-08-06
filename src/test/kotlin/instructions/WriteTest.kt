@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.Write
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class WriteTest {
-    val write = Write("4700")
+    val cpu = CPU()
+    val write = Write("4700", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0111", write.registerX)

@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.SkipEqual
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class SkipEqualTest {
-    val skipEqual = SkipEqual("8010")
+    val cpu = CPU()
+    val skipEqual = SkipEqual("8010", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0000", skipEqual.registerX)

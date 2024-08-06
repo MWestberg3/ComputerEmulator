@@ -1,6 +1,8 @@
 package org.example.instructions
 
-class SetA(private val instruction: String): Instruction(instruction) {
+import org.example.CPU
+
+class SetA(private val instruction: String, cpu: CPU): Instruction(instruction, cpu,) {
     override var registerX: String? = null
     override var registerY: String? = null
     override var registerZ: String? = null
@@ -17,5 +19,9 @@ class SetA(private val instruction: String): Instruction(instruction) {
     }
 
     override fun getAddress() {
+    }
+
+    override fun incrementProgramCounter() {
+        TODO("Not yet implemented")
     }
 }

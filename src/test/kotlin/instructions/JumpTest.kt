@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.Jump
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class JumpTest {
-    val jump = Jump("5006")
+    val cpu = CPU()
+    val jump = Jump("5006", cpu)
     @Test
     fun getRegisterX() {
         assertNull(jump.registerX)

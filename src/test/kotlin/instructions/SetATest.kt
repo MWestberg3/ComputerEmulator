@@ -1,12 +1,14 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.SetA
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
 class SetATest {
-    val setA = SetA("A255")
+    val cpu = CPU()
+    val setA = SetA("A255", cpu)
     @Test
     fun getRegisterX() {
         assertNull(setA.registerX)

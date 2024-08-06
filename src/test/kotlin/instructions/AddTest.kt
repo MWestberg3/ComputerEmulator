@@ -1,12 +1,15 @@
 package instructions
 
+import org.example.CPU
 import org.example.instructions.Add
 import org.junit.jupiter.api.Test
 
 import org.junit.jupiter.api.Assertions.*
 
+@OptIn(ExperimentalUnsignedTypes::class)
 class AddTest {
-    val add = Add("1010")
+    val cpu = CPU()
+    val add = Add("1010", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0000", add.registerX)
@@ -33,7 +36,11 @@ class AddTest {
     }
 
     @Test
-    fun assignRegister() {
+    fun executeTest() {
+        cpu.generalRegisters[0] = 14.toUByte()
+        cpu.generalRegisters[1] = 3.toUByte()
+        add.execute()
+        assertEquals(17.toUByte(), add.cpu.generalRegisters[0])
     }
 
     @Test
