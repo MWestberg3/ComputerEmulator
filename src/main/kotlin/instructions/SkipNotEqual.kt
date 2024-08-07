@@ -20,6 +20,6 @@ class SkipNotEqual(private val instruction: String, cpu: CPU): Instruction(instr
     }
 
     override fun incrementProgramCounter() {
-        TODO("Not yet implemented")
+        cpu.programCounter = (cpu.programCounter.toInt() + 2).toUShort()
     }
 }

@@ -1,6 +1,9 @@
 package instructions
 
 import org.example.CPU
+import org.example.RAM
+import org.example.ROM
+import org.example.Screen
 import org.example.instructions.Add
 import org.junit.jupiter.api.Test
 
@@ -8,8 +11,11 @@ import org.junit.jupiter.api.Assertions.*
 
 @OptIn(ExperimentalUnsignedTypes::class)
 class AddTest {
-    val cpu = CPU()
-    val add = Add("1010", cpu)
+    private val screen = Screen()
+    private val ram = RAM()
+    val rom = ROM("/Users/mwestberg/IdeaProjects/ComputerEmulator/roms/hello.d5700")
+    val cpu = CPU(rom, ram, screen)
+    private val add = Add("1010", cpu)
     @Test
     fun getRegisterX() {
         assertEquals("0000", add.registerX)

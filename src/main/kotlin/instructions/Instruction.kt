@@ -15,7 +15,7 @@ abstract class Instruction(private val instruction: String, val cpu: CPU) {
     fun execute() {
         assignRegister()
         getAddress()
-//        incrementProgramCounter()
+        incrementProgramCounter()
         decrementTimer()
     }
 

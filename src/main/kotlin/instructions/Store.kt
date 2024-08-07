@@ -1,6 +1,7 @@
 package org.example.instructions
 
 import org.example.CPU
+import java.util.*
 
 class Store(private val instruction: String, cpu: CPU) : Instruction(instruction, cpu,) {
     override var registerX: String? = this.instruction[1].toString().toInt(16).toString(2).padStart(4, '0')
@@ -22,8 +23,7 @@ class Store(private val instruction: String, cpu: CPU) : Instruction(instruction
     }
 
     override fun incrementProgramCounter() {
-        TODO("Not yet implemented")
+        cpu.programCounter = (cpu.programCounter.toInt() + 2).toUShort()
     }
-
 
 }

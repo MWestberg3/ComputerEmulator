@@ -1,6 +1,9 @@
 package instructions
 
 import org.example.CPU
+import org.example.RAM
+import org.example.ROM
+import org.example.Screen
 import org.example.instructions.Store
 import org.junit.jupiter.api.Test
 
@@ -8,8 +11,11 @@ import org.junit.jupiter.api.Assertions.*
 
 @OptIn(ExperimentalUnsignedTypes::class)
 class StoreTest {
-    val cpu = CPU()
-    val store = Store("0048", cpu)
+    private val screen = Screen()
+    private val ram = RAM()
+    val rom = ROM("/Users/mwestberg/IdeaProjects/ComputerEmulator/roms/hello.d5700")
+    val cpu = CPU(rom, ram, screen)
+    private val store = Store("0048", cpu)
 
     @Test
     fun execute() {
@@ -44,13 +50,5 @@ class StoreTest {
     fun executeTest() {
         store.execute()
         assertEquals(72.toUByte(), store.cpu.generalRegisters[0])
-    }
-
-    @Test
-    fun testGetByte() {
-    }
-
-    @Test
-    fun testGetAddress() {
     }
 }
